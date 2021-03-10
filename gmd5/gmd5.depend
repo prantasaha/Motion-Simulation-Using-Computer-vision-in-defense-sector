@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1552055571 source:c:\users\smira\desktop\gmd\gmd5\main.cpp
+	<iostream>
+	"opencv2/highgui/highgui.hpp"
+	"opencv2/imgproc/imgproc.hpp"
+	"opencv2/opencv.hpp"
+	"opencv2/core/core.hpp"
+	<GL/freeglut.h>
+	<GL/glut.h>
+	<pthread.h>
+	<process.h>
+	<windows.h>
+

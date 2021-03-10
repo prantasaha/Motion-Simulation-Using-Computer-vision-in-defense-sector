@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1471101838 source:c:\gmd\gmd2\main.cpp
+	"opencv2/highgui/highgui.hpp"
+	<iostream>
+

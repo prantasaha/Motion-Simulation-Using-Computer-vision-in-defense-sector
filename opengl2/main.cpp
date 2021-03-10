@@ -1,0 +1,119 @@
+#include <GL/glew.h> // Include the GLEW header file
+#include <GL/glut.h>
+#include <math.h>
+
+bool* keyStates = new bool[256]; // Create an array of boolean values of length 256 (0-255)
+
+bool movingUp = false; // Whether or not we are moving up or down
+float xLocation = 0.0f; // Keep track of our position on the y axis.
+
+float xRotationAngle = 0.0f; // The angle of rotation for our object
+
+void keyOperations (void) {
+if (keyStates[GLUT_KEY_LEFT]) { // If the left arrow key has been pressed
+// Perform left arrow key operations
+}
+}
+
+void display (void) {
+keyOperations();
+
+glClearColor(0.0f, 0.0f, 0.0f, 0.0f); // Clear the background of our window to red
+glClear(GL_COLOR_BUFFER_BIT); //Clear the colour buffer (more buffers later on)
+glLoadIdentity(); // Load the Identity Matrix to reset our drawing locations
+
+glTranslatef(0.0f, 0.0f, -1.5f); // Push eveything 5 units back into the scene, otherwise we won't see the primitive
+
+glTranslatef(xLocation, 0.0f, 0.0f); // Translate our object along the y axis
+
+//glRotatef(xRotationAngle, 1.0f, 0.0f, 0.0f); // Rotate our object around the y axis
+    glBegin(GL_TRIANGLE_FAN); //BEGIN CIRCLE
+    glColor3f(1.0,0.0,0.0);
+    glVertex2f(0, 0); // center of circle
+    float radius=0.35,twicePi=2*3.14;
+    for (int i = 0; i <= 50; i++)   {
+        glVertex2f (radius * cos(i * twicePi / 50),radius * sin(i * twicePi / 50));
+    }
+    glEnd();
+    glBegin(GL_TRIANGLE_FAN); //BEGIN CIRCLE
+    glColor3f(0.0,1.0,0.0);
+    glVertex2f(0, 0); // center of circle
+    radius=0.25;
+    for (int i = 0; i <= 50; i++)   {
+        glVertex2f (radius * cos(i * twicePi / 50),radius * sin(i * twicePi / 50));
+    }
+    glEnd();
+    glBegin(GL_TRIANGLE_FAN); //BEGIN CIRCLE
+    glColor3f(1.0,1.0,0.0);
+    glVertex2f(0, 0); // center of circle
+    radius=0.15;
+    for (int i = 0; i <= 50; i++)   {
+        glVertex2f (radius * cos(i * twicePi / 50),radius * sin(i * twicePi / 50));
+    }
+    glEnd();
+      glBegin(GL_TRIANGLE_FAN); //BEGIN CIRCLE
+    glColor3f(1.0,0.0,1.0);
+    glVertex2f(0, 0); // center of circle
+    radius=0.05;
+    for (int i = 0; i <= 50; i++)   {
+       glVertex2f (radius * cos(i * twicePi / 50),radius * sin(i * twicePi / 50));
+    }
+    glEnd();
+
+
+//glutWireCube(2.0f); // Render the primitive
+
+glFlush(); // Flush the OpenGL buffers to the window
+
+if (movingUp) // If we are moving up
+xLocation -= 0.0015f; // Move up along our yLocation
+else  // Otherwise
+xLocation += 0.0015f; // Move down along our yLocation
+
+if (xLocation < -1.4f) // If we have gone up too far
+movingUp = false; // Reverse our direction so we are moving down
+else if (xLocation > 1.4f) // Else if we have gone down too far
+movingUp = true; // Reverse our direction so we are moving up
+
+xRotationAngle += 0.005f; // Increment our rotation value
+
+if (xRotationAngle > 360.0f) // If we have rotated beyond 360 degrees (a full rotation)
+xRotationAngle -= 360.0f; // Subtract 360 degrees off of our rotation
+}
+
+void reshape (int width, int height) {
+glViewport(0, 0, (GLsizei)width, (GLsizei)height); // Set our viewport to the size of our window
+glMatrixMode(GL_PROJECTION); // Switch to the projection matrix so that we can manipulate how our scene is viewed
+glLoadIdentity(); // Reset the projection matrix to the identity matrix so that we don't get any artifacts (cleaning up)
+
+gluPerspective(60, (GLfloat)width / (GLfloat)height, 1.0, 100.0); // Set the Field of view angle (in degrees), the aspect ratio of our window, and the new and far planes
+
+glMatrixMode(GL_MODELVIEW); // Switch back to the model view matrix, so that we can start drawing shapes correctly
+}
+
+void keyPressed (unsigned char key, int x, int y) {
+keyStates[key] = true; // Set the state of the current key to pressed
+}
+
+void keyUp (unsigned char key, int x, int y) {
+keyStates[key] = false; // Set the state of the current key to not pressed
+}
+
+
+glutInit(&argc, argv); // Initialize GLUT
+glutInitDisplayMode (GLUT_SINGLE); // Set up a basic display buffer (only single buffered for now)
+glutInitWindowSize (500, 500); // Set the width and height of the window
+glutInitWindowPosition (100, 100); // Set the position of the window
+//glutCreateWindow ("Your first OpenGL Window"); // Set the title for the window
+
+glutDisplayFunc(display); // Tell GLUT to use the method "display" for rendering
+
+glutIdleFunc(display); // Tell GLUT to use the method "display" as our idle method as well
+
+glutReshapeFunc(reshape); // Tell GLUT to use the method "reshape" for reshaping
+
+glutKeyboardFunc(keyPressed); // Tell GLUT to use the method "keyPressed" for key presses
+glutKeyboardUpFunc(keyUp); // Tell GLUT to use the method "keyUp" for key up events
+
+glutMainLoop(); // Enter GLUT's main loop
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1552056381 source:c:\users\smira\desktop\gmdtest\main.cpp
+	<iostream>
+	"opencv2/highgui/highgui.hpp"
+	"opencv2/imgproc/imgproc.hpp"
+	"opencv2/opencv.hpp"
+	<GL/freeglut.h>
+	<GL/glut.h>
+

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1488524107 source:c:\gmd\gesture\main.cpp
+	"opencv2/imgproc/imgproc.hpp"
+	<opencv2/highgui/highgui.hpp>
+	<iostream>
+
+1494432311 source:c:\users\smira\desktop\gmd\gesture\main.cpp
+	"opencv2/imgproc/imgproc.hpp"
+	<opencv2/highgui/highgui.hpp>
+	<iostream>
+

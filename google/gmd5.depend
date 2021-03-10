@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1552714272 source:c:\users\smira\desktop\gmd\google\main.cpp
+	<iostream>
+	"opencv2/highgui/highgui.hpp"
+	"opencv2/imgproc/imgproc.hpp"
+	<opencv2/core/core.hpp>
+	<GL/glew.h>
+	<GL/freeglut.h>
+	<GL/glut.h>
+	<pthread.h>
+	<process.h>
+	<windows.h>
+	<math.h>
+	<cstdlib>
+	<ctime>
+
+1556427289 source:e:\smi\gmd\google\main.cpp
+	<iostream>
+	"opencv2/highgui/highgui.hpp"
+	"opencv2/imgproc/imgproc.hpp"
+	<opencv2/core/core.hpp>
+	<GL/glew.h>
+	<GL/freeglut.h>
+	<GL/glut.h>
+	<pthread.h>
+	<process.h>
+	<windows.h>
+	<math.h>
+	<cstdlib>
+	<ctime>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	<stdarg.h>
+	<fstream>
+

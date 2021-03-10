@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1492444179 source:c:\gmd\gmd_ogl\main.cpp
+	<windows.h>
+	<GL/gl.h>
+	<glut.h>
+	<stdio.h>
+	<math.h>
+

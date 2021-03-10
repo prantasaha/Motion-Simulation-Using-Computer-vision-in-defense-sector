@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1552062908 source:c:\users\smira\desktop\opengl\main.cpp
+	<GL/glew.h>
+	<GL/glut.h>
+	<math.h>
+
+1552211747 source:c:\users\smira\desktop\gmd\opengl\main.cpp
+	<GL/glew.h>
+	<GL/glut.h>
+	<math.h>
+
